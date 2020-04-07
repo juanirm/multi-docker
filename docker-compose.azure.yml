@@ -19,7 +19,7 @@ services:
       - api
       - client
   api:
-    image: jireymendez/multi-server
+    image: jireymendez/multi-server:latest
     restart: on-failure:10
     environment:
       - REDIS_HOST=redis
@@ -32,9 +32,9 @@ services:
     depends_on:
       - postgres
   client:
-    image: jireymendez/multi-client
+    image: jireymendez/multi-client:latest
   worker:
-    image: jireymendez/multi-worker
+    image: jireymendez/multi-worker:latest
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
